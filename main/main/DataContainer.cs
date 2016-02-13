@@ -11,10 +11,11 @@ namespace main
     {
         const int SIZE = 3000;
         public static double[,] routes;
-        public static void Load(string path)
+        public static List<Order> orders;
+        public static void Load(string pathRoutes, string pathTimes)
         {
             routes = new double[SIZE, SIZE];
-            string[] lines = File.ReadAllLines(path);
+            string[] lines = File.ReadAllLines(pathRoutes);
             for (int i = 0; i < lines.Length; i++)
             {
                 string[] splitted = lines[i].Split(',');
@@ -23,6 +24,13 @@ namespace main
                     routes[i, j] = double.Parse(splitted[i].Replace('.', ','));
                 }
             }
+            orders = new List<Order>();
+            string[] lns = File.ReadAllLines(pathTimes);
+            foreach (var item in lns)
+            {
+                orders.Add(Order.FromString(item));
+            }
+
         }
     }
 }

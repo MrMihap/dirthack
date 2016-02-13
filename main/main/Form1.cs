@@ -19,7 +19,8 @@ namespace main
 
     private void Form1_Load(object sender, EventArgs e)
     {
-        DataContainer.Load("times.txt");
+        DataContainer.Load("times.txt", "order.csv");
+        MessageBox.Show(string.Format("{0},{1}", DataContainer.routes.Length, DataContainer.orders.Count));
     }
   }
 }

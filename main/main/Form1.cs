@@ -29,6 +29,7 @@ namespace main
         sol.orders.Add(DataContainer.orders[2]);
         MessageBox.Show(sol.ToString());
         //MessageBox.Show(string.Format("{0},{1}", DataContainer.routes.Length, DataContainer.orders.Count));
+        CSolver.TrySolve();
     }
 
     private void btCheck_Click(object sender, EventArgs e)

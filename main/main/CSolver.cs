@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace main
       {
         int id = DataContainer.orders[0].id;
         runCab(id);
-
+        return;
       }
 
 
@@ -30,9 +31,9 @@ namespace main
       CSolution sol = new CSolution();
 
       sol.orders.Add(DataContainer.orders[id]);
+      DataContainer.orders.Remove(DataContainer.orders[id]);
       List<Order> avalible = GetAvalible(DataContainer.orders[id].start, DataContainer.orders[id].departTime);
       sol.orders.Add(avalible[0]);
-
       if (DataContainer.routes[sol.orders[1].start, sol.orders[0].finish] >
         DataContainer.routes[sol.orders[1].start, sol.orders[1].finish])
       {
@@ -44,6 +45,7 @@ namespace main
         sol.orders.Add(sol.orders[0]);
         sol.orders.Add(sol.orders[1]);
       }
+      File.WriteAllText("answer.txt", sol.ToString());
       
       //while(avalible.Count > 0)
       //{

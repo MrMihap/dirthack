@@ -24,7 +24,7 @@ namespace main
         {
             str += GetOrder(i) + ",";
         }
-        return str;
+        return str.TrimEnd(',');
     }
     public string GetOrder(int pos)
     {
@@ -52,6 +52,29 @@ namespace main
         }
         return false;
     }
+      public List<Order> getNotEjected()
+      {
+          List<Order> rr = new List<Order>();
+          foreach (var item in orders)
+          {
+              if(!rr.Contains(item))
+              {
+                  rr.Add(item);
+              }
+          }
+          List<Order> notGot = new List<Order>();
+          foreach (var item in rr)
+          {
+              int count = 0;
+              foreach (var ite in from c in orders where c == item select c)
+              {
+                  count++;
+              }
+              if (count < 2)
+                  notGot.Add(item);
+          }
+          return notGot;
+      }
   }
 }
  

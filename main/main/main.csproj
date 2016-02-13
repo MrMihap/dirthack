@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CSolution.cs" />
+    <Compile Include="CSolver.cs" />
     <Compile Include="DataContainer.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

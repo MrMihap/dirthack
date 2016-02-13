@@ -12,7 +12,7 @@ namespace main
     {
       // все доступные
       List<int> AvalibleIdS = new List<int>();
-      int matrix_lenth = DataContainer.arr.Length;
+      //int matrix_lenth = DataContainer.arr.Length;
       
 
       // 

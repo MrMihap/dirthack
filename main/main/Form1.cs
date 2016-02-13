@@ -22,6 +22,12 @@ namespace main
     private void Form1_Load(object sender, EventArgs e)
     {
         DataContainer.Load("times.txt", "order.csv");
+        CSolution sol = new CSolution();
+        sol.orders.Add(DataContainer.orders[1]);
+        sol.orders.Add(DataContainer.orders[2]);
+        sol.orders.Add(DataContainer.orders[1]);
+        sol.orders.Add(DataContainer.orders[2]);
+        MessageBox.Show(sol.ToString());
         //MessageBox.Show(string.Format("{0},{1}", DataContainer.routes.Length, DataContainer.orders.Count));
     }
 

@@ -9,14 +9,14 @@ namespace main
     class Order
     {
         public int id;
-        public int ptx;
-        public int pty;
+        public int start;
+        public int finish;
         public int departTime;
         private Order(int _id, int _ptx, int _pty, int _dep)
         {
             id = _id;
-            _ptx = ptx;
-            _pty = pty;
+            start = _ptx;
+            finish = _pty;
             departTime = _dep;
         }
         public static Order FromString(string line)

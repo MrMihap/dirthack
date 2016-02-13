@@ -10,17 +10,17 @@ namespace main
     static class DataContainer
     {
         const int SIZE = 3000;
-        public static double[,] arr;
+        public static double[,] routes;
         public static void Load(string path)
         {
-            arr = new double[SIZE, SIZE];
+            routes = new double[SIZE, SIZE];
             string[] lines = File.ReadAllLines(path);
             for (int i = 0; i < lines.Length; i++)
             {
                 string[] splitted = lines[i].Split(',');
-                for (int i = 0; i < length; i++)
+                for (int j = 0; j < splitted.Length; j++)
                 {
-                    
+                    routes[i, j] = double.Parse(splitted[i].Replace('.', ','));
                 }
             }
         }

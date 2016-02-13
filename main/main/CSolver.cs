@@ -30,21 +30,22 @@ namespace main
       // get first
       CSolution sol = new CSolution();
 
-      sol.orders.Add(DataContainer.orders[id]);
-      DataContainer.orders.Remove(DataContainer.orders[id]);
-      List<Order> avalible = GetAvalible(DataContainer.orders[id].start, DataContainer.orders[id].departTime);
+      sol.orders.Add(DataContainer.getWhereId(id));
+      DataContainer.orders.Remove(DataContainer.getWhereId(id));
+      List<Order> avalible = GetAvalible(DataContainer.getWhereId(id).start, DataContainer.getWhereId(id).departTime);
       sol.orders.Add(avalible[0]);
       if (DataContainer.routes[sol.orders[1].start, sol.orders[0].finish] >
         DataContainer.routes[sol.orders[1].start, sol.orders[1].finish])
-      {
-        sol.orders.Add(sol.orders[1]);
-        sol.orders.Add(sol.orders[0]);
-      }
-      else
-      {
-        sol.orders.Add(sol.orders[0]);
-        sol.orders.Add(sol.orders[1]);
-      }
+          {
+            sol.orders.Add(sol.orders[1]);
+            sol.orders.Add(sol.orders[0]);
+          }
+          else
+          {
+            sol.orders.Add(sol.orders[0]);
+            sol.orders.Add(sol.orders[1]);
+          }
+       
       File.WriteAllText("answer.txt", sol.ToString());
       
       //while(avalible.Count > 0)

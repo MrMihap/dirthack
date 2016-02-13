@@ -32,5 +32,14 @@ namespace main
             }
 
         }
+        public static Order getWhereId(int id)
+        {
+            foreach (var item in orders)
+            {
+                if (item.id == id)
+                    return item;
+            }
+            return null;
+        }
     }
 }

@@ -8,6 +8,14 @@ namespace main
 {
   class CSolver
   {
+    public static void TrySolve()
+    {
+      // все доступные
+      List<int> AvalibleIdS = new List<int>();
+      int matrix_lenth = DataContainer.arr.Length;
+      
 
+      // 
+    }
   }
 }
